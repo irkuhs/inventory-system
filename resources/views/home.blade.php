@@ -38,6 +38,10 @@
                                 <th scope="row">{{ $key+1}}</th>
                                 <td>{{ $inventory->name}}</td>
                                 <td>{{ $inventory->description}}</td>
+                                <td>
+                                    <a href="{{route('inventori.edit', $inventory)}}" button type="button" class="btn btn-info">Edit</button></a>
+                                    <a href="{{route('inventori.delete', $inventory)}}" button type="button" class="btn btn-warning">Delete</button></a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

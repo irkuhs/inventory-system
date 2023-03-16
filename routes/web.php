@@ -23,5 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //inventory
 Route::get('/inventori/create', [App\Http\Controllers\InventoryController::class, 'create'])->name('inventori.create');
-
 Route::post('/inventori/store', [App\Http\Controllers\InventoryController::class, 'store'])->name('inventori.store');
+Route::get('/inventori/edit/{inventory}', [App\Http\Controllers\InventoryController::class, 'edit'])->name('inventori.edit');
+Route::post('/inventori/update/{inventory}', [App\Http\Controllers\InventoryController::class, 'update'])->name('inventori.update');
+Route::get('/inventori/delete/{inventory}', [App\Http\Controllers\InventoryController::class, 'delete'])->name('inventori.delete');
+
