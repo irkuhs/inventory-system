@@ -53,7 +53,7 @@
                         </tbody>
                       </table>
 
-                    <button type="button" class="btn btn-primary">Tambah lain</button>
+                    <a href="{{ route('inventori.create')}}" button type="button" class="btn btn-primary">Tambah lain</button></a>
 
                 </div>
             </div>

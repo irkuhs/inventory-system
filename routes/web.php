@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//inventory
+Route::get('/inventori/create', [App\Http\Controllers\InventoryController::class, 'create'])->name('inventori.create');
