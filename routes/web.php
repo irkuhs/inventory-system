@@ -23,3 +23,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //inventory
 Route::get('/inventori/create', [App\Http\Controllers\InventoryController::class, 'create'])->name('inventori.create');
+
+Route::post('/inventori/store', [App\Http\Controllers\InventoryController::class, 'store'])->name('inventori.store');
