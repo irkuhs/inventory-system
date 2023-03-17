@@ -48,4 +48,18 @@ class InventoryController extends Controller
         return redirect()->route("home");
     }
 
+    public function search(Request $request)
+    {
+        $inventories = Inventori::all();
+
+        if($request->keyword){
+            $inventories = Inventori::query()
+                        ->where('user_id',  auth()->user()->id)
+                        ->where('name','LIKE','%'.$request->keyword.'%')
+                        ->paginate(3);
+        }else{
+            $inventories =  Inventori::paginate(10);
+        }
+        return view('home',compact('inventories'));
+    }
 }
