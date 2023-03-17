@@ -24,7 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $inventories = Inventori::all();
+        //by query
+        //$inventories = Inventori::where('user_id', auth()->user()->id)->get();
+
+        //by relation
+        $inventories = auth()->user()->inventories;
         return view('home', compact('inventories'));
     }
 }
