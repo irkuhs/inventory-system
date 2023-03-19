@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inventori;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreInventoryRequest;
 
 class InventoryController extends Controller
 {
@@ -12,7 +13,7 @@ class InventoryController extends Controller
         return view('inventori.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreInventoryRequest $request)
     {
         Inventori::create(
             [
