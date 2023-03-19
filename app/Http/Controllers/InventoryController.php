@@ -50,15 +50,13 @@ class InventoryController extends Controller
 
     public function search(Request $request)
     {
-        $inventories = Inventori::all();
-
         if($request->keyword){
             $inventories = Inventori::query()
                         ->where('user_id',  auth()->user()->id)
                         ->where('name','LIKE','%'.$request->keyword.'%')
                         ->paginate(3);
         }else{
-            $inventories =  Inventori::paginate(10);
+            $inventories = auth()->user()->inventories()->paginate(5);
         }
         return view('home',compact('inventories'));
     }

@@ -56,6 +56,8 @@
                         </tbody>
                       </table>
 
+                      {{ $inventories->links()}}
+
                     <a href="{{route('inventori.create')}}" button type="button" class="btn btn-primary">Tambah lain</button></a>
 
                 </div>

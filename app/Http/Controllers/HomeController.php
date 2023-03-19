@@ -28,7 +28,7 @@ class HomeController extends Controller
         //$inventories = Inventori::where('user_id', auth()->user()->id)->get();
 
         //by relation
-        $inventories = auth()->user()->inventories;
-        return view('home', compact('inventories'));
+        $inventories = auth()->user()->inventories()->paginate(5);
+         return view('home', compact('inventories'));
     }
 }
