@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('inventories', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('name');
-            $table->longText('description');
-            $table->timestamps();
+        Schema::table('inventories', function (Blueprint $table){
+            $table->unsignedBigInteger('inventory_type_id');
+            $table->foreign('inventory_type_id')->references('id')->on('inventory_type');
         });
+
     }
 
     /**
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventories');
+        //
     }
 };
