@@ -29,3 +29,7 @@ Route::post('/inventori/update/{inventory}', [App\Http\Controllers\InventoryCont
 Route::get('/inventori/delete/{inventory}', [App\Http\Controllers\InventoryController::class, 'delete'])->name('inventori.delete');
 Route::get('/inventori/search', [App\Http\Controllers\InventoryController::class, 'search'])->name('inventori.search');
 
+//type
+Route::get('/type/create', [App\Http\Controllers\TypeController::class, 'create'])->name('type.create');
+Route::post('/type/store', [App\Http\Controllers\TypeController::class, 'store'])->name('type.store');
+

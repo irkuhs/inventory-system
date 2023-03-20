@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Type;
 use App\Models\Inventori;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,7 @@ class HomeController extends Controller
 
         //by relation
         $inventories = auth()->user()->inventories()->paginate(5);
-         return view('home', compact('inventories'));
+        $inventoryTypes = Type::all();
+         return view('home', compact('inventories','inventoryTypes'));
     }
 }

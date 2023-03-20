@@ -10,7 +10,8 @@ class InventoryController extends Controller
 {
     public function create()
     {
-        return view('inventori.create');
+        $inventoryTypes = Type::all();
+        return view('inventory.create', compact('inventoryTypes'));
     }
 
     public function store(StoreInventoryRequest $request)
