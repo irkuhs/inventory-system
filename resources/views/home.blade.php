@@ -14,15 +14,15 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ Auth::user()->name }}{{ __('! You are logged in.') }}
                 </div>
             </div>
 
             <div class="card mt-2">
-                <div class="card-header">Inventory</div>
+                <div class="card-header">Inventory {{ Auth::user()->name }}</div>
                 <form action="{{route('inventori.search')}}" method="GET">
                     <div class="input-group mt-2 p-2">
-                        <input type="text" class="form-control" name="keyword" value="{{ request()->get('keyword') }}" placeholder="Search by Inventory Name">
+                        <input type="text" class="form-control" name="keyword" placeholder="Search by Inventory Name">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">Search</button>
                             <a href="{{route('home')}}" button class="btn btn-primary" type="submit">Refresh</button></a>
