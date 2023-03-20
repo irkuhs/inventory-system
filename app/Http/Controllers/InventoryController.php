@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Type;
 use App\Models\Inventori;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreInventoryRequest;
@@ -11,16 +12,18 @@ class InventoryController extends Controller
     public function create()
     {
         $inventoryTypes = Type::all();
-        return view('inventory.create', compact('inventoryTypes'));
+        return view('inventori.create', compact('inventoryTypes'));
     }
 
     public function store(StoreInventoryRequest $request)
     {
+        //dd($request->all());
         Inventori::create(
             [
                 'user_id'=> auth() -> user() -> id,
                 'name'=> $request-> name,
-                'description' => $request -> description
+                'description' => $request -> description,
+                'inventory_type_id' => $request->inventory_type_id
             ]
             );
 

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Inventori;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Type extends Model
 {
@@ -14,4 +15,9 @@ class Type extends Model
     [
         'name',
     ];
+
+    public function inventory()
+    {
+        return $this->hasOne(Inventori::class);
+    }
 }

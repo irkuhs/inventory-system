@@ -21,7 +21,6 @@
 
                     <form method="POST" action="{{ route('type.store') }}">
                         @csrf
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama Inventory</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Jenis" name="name">

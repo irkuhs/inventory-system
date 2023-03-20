@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Type;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Inventori extends Model
 {
@@ -14,6 +15,12 @@ class Inventori extends Model
     [
         'user_id',
         'name',
-        'description'
+        'description',
+        'inventory_type_id'
     ];
+
+    public function inventoryType()
+    {
+        return $this->belongsTo(Type::class, 'inventory_type_id');
+    }
 }

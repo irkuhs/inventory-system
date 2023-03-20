@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('inventories', function (Blueprint $table){
-            $table->unsignedBigInteger('inventory_type_id');
+            $table->unsignedBigInteger('inventory_type_id')->after('user_id');;
             $table->foreign('inventory_type_id')->references('id')->on('inventory_type');
         });
-
     }
 
     /**
