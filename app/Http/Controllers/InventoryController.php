@@ -32,7 +32,8 @@ class InventoryController extends Controller
 
     public function edit(Inventori $inventory)
     {
-        return view('inventori.update', compact('inventory'));
+        $inventoryTypes=Type::all();
+        return view('inventori.update', compact('inventory','inventoryTypes'));
     }
 
     public function update(Request $request, Inventori $inventory)
@@ -40,7 +41,8 @@ class InventoryController extends Controller
         $inventory->update([
             'user_id'=> $inventory->user_id,
             'name'=> $request->name,
-            'description' => $request ->description
+            'description' => $request ->description,
+            'inventory_type_id' => $request->inventory_type_id
         ]);
 
         return redirect()->route("home");

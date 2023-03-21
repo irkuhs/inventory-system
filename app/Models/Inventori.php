@@ -23,4 +23,9 @@ class Inventori extends Model
     {
         return $this->belongsTo(Type::class, 'inventory_type_id');
     }
+
+    public function inventoryStocks()
+    {
+        return $this->hasMany(inventoryStock::class);
+    }
 }
