@@ -80,8 +80,8 @@ class InventoryController extends Controller
 
     public function show(Inventori $inventory)
     {
-        $quantityStocks = $inventory->inventoryStocks;
+        //$quantityStocks = $inventory->inventoryStocks;
 
-        return view('inventori.show', compact('inventory', 'quantityStocks'));
+        return view('inventori.show', compact('inventory'));
     }
 }
