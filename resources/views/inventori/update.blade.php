@@ -8,8 +8,17 @@
                 <div class="card-header">Edit Inventory</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('inventori.update',$inventory, $inventoryTypes) }}">
+                    <form method="POST" action="{{ route('inventori.update',$inventory, $inventoryTypes, $inventoryStock) }}">
                         @csrf
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlSelect1">Jenis Inventori</label>
+                            <select class="form-control" name="inventory_type_id">
+                                @foreach ( $inventoryTypes as $Type )
+                                    <option value="{{ $Type->id }}">{{ $Type->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama Inventory</label>
@@ -22,15 +31,17 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleFormControlSelect1">Jenis Inventori</label>
-                            <select class="form-control" name="inventory_type_id">
-                                @foreach ( $inventoryTypes as $Type )
-                                    <option value="{{ $Type->id }}">{{ $Type->name }}</option>
-                                @endforeach
-                            </select>
+                            <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Kuantiti" name="quantity">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Color</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Warna" name="color">
                         </div>
 
                         <button type="submit" class="btn btn-success">Berjaya</button></a>
+                        <a href="{{route('home')}}" button type="button" class="btn btn-danger">Kembali</button></a>
                     </form>
                 </div>
             </div>

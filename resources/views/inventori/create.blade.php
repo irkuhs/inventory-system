@@ -40,6 +40,16 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="besar, panjang dan lebar" name="description"></textarea>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Kuantiti" name="quantity">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Color</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Warna" name="color">
+                        </div>
+
                         <button type="submit" class="btn btn-success">Berjaya</button></a>
                         <a href="{{route('home')}}" button type="button" class="btn btn-danger">Kembali</button></a>
                     </form>

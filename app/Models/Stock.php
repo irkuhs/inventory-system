@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Stock extends Model
 {
     use HasFactory;
-    protected $table = 'inventory_stock';
+    protected $table = 'inventory_stocks';
 
     protected $fillable =
     [
-        'inventori_id',
+        'inventory_id',
         'quantity',
         'color'
     ];
 
     public function inventory()
     {
-        return $this->belongsTo(Inventori::class, 'inventori_id');
+        return $this->belongsTo(Inventori::class, 'inventory_id');
     }
 }

@@ -12,6 +12,12 @@ class TypeController extends Controller
         return view('type.create');
     }
 
+    public function index()
+    {
+        $inventoryTypes = Type::all();
+        return view('type.index', compact('inventoryTypes'));
+    }
+
     public function store(Request $request)
     {
         Type::create(
@@ -20,6 +26,6 @@ class TypeController extends Controller
             ]
             );
 
-        return to_route("home");
+        return to_route("type.index");
     }
 }

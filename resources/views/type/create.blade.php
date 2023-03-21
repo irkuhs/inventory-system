@@ -27,7 +27,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-success">Berjaya</button></a>
-                        <a href="{{route('home')}}" button type="button" class="btn btn-danger">Kembali</button></a>
+                        <a href="{{route('type.index')}}" button type="button" class="btn btn-danger">Kembali</button></a>
                     </form>
                 </div>
             </div>

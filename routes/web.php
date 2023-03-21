@@ -28,8 +28,10 @@ Route::get('/inventori/edit/{inventory}', [App\Http\Controllers\InventoryControl
 Route::post('/inventori/update/{inventory}', [App\Http\Controllers\InventoryController::class, 'update'])->name('inventori.update');
 Route::get('/inventori/delete/{inventory}', [App\Http\Controllers\InventoryController::class, 'delete'])->name('inventori.delete');
 Route::get('/inventori/search', [App\Http\Controllers\InventoryController::class, 'search'])->name('inventori.search');
+Route::get('/inventori/show/{inventory}', [App\Http\Controllers\InventoryController::class, 'show'])->name('inventori.show');
 
 //type
+Route::get('/type/index', [App\Http\Controllers\TypeController::class, 'index'])->name('type.index');
 Route::get('/type/create', [App\Http\Controllers\TypeController::class, 'create'])->name('type.create');
 Route::post('/type/store', [App\Http\Controllers\TypeController::class, 'store'])->name('type.store');
 
