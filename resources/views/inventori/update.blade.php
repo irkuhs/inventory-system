@@ -8,7 +8,7 @@
                 <div class="card-header">Edit Inventory</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('inventori.update',$inventory, $inventoryTypes, $inventoryStock) }}">
+                    <form method="POST" action="{{ route('inventori.update',$inventory) }}">
                         @csrf
 
                         <div class="mb-3">
@@ -40,7 +40,7 @@
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Warna" name="color">
                         </div>
 
-                        <button type="submit" class="btn btn-success">Berjaya</button></a>
+                        <button type="submit" class="btn btn-success">Ubah</button></a>
                         <a href="{{route('home')}}" button type="button" class="btn btn-danger">Kembali</button></a>
                     </form>
                 </div>

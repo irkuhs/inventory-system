@@ -39,16 +39,16 @@ class InventoryController extends Controller
         return to_route("home");
     }
 
-    public function edit(Inventori $inventory, Stock $inventoryStock)
+    public function edit(Inventori $inventory)
     {
         $inventoryTypes=Type::all();
         $inventoryStock = Stock::all();
         return view('inventori.update', compact('inventory','inventoryTypes','inventoryStock'));
     }
 
-    public function update(Request $request, Inventori $inventory, Stock $inventoryStock)
+    public function update(Request $request, Inventori $inventory)
     {
-        $inventory->update([
+        $inventori = $inventory->update([
             'user_id'=> $inventory->user_id,
             'name'=> $request->name,
             'description' => $request ->description,
