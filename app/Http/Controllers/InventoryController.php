@@ -67,6 +67,7 @@ class InventoryController extends Controller
 
     public function delete(Inventori $inventory)
     {
+        $inventory->inventoryStock()->delete();
         $inventory->delete();
 
         return redirect()->route("home");
