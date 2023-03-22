@@ -35,3 +35,7 @@ Route::get('/type/index', [App\Http\Controllers\TypeController::class, 'index'])
 Route::get('/type/create', [App\Http\Controllers\TypeController::class, 'create'])->name('type.create');
 Route::post('/type/store', [App\Http\Controllers\TypeController::class, 'store'])->name('type.store');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
