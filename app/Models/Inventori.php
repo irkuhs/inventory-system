@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Type;
+use App\Models\Stock;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,8 +25,8 @@ class Inventori extends Model
         return $this->belongsTo(Type::class, 'inventory_type_id');
     }
 
-    public function inventoryStocks()
+    public function inventoryStock()
     {
-        return $this->hasMany(Stock::class);
+        return $this->hasMany(Stock::class, 'inventory_id');
     }
 }

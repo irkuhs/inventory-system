@@ -22,7 +22,7 @@ class InventoryController extends Controller
         //dd($request->all());
         $inventori= Inventori::create(
             [
-                'user_id'=> auth() -> user() -> id,
+                'user_id'=> auth()->user()->id,
                 'name'=> $request-> name,
                 'description' => $request -> description,
                 'inventory_type_id' => $request->inventory_type_id,
@@ -48,11 +48,18 @@ class InventoryController extends Controller
 
     public function update(Request $request, Inventori $inventory)
     {
-        $inventori = $inventory->update([
+        $inventory->update([
             'user_id'=> $inventory->user_id,
             'name'=> $request->name,
             'description' => $request ->description,
             'inventory_type_id' => $request->inventory_type_id
+        ]);
+
+        $stock = Stock::where('inventory_id',$inventory->id);
+
+        $stock->update([
+            'quantity'=> $request-> quantity,
+            'color' => $request -> color
         ]);
 
         return redirect()->route("home");
@@ -80,8 +87,9 @@ class InventoryController extends Controller
 
     public function show(Inventori $inventory)
     {
-        //$quantityStocks = $inventory->inventoryStocks;
 
-        return view('inventori.show', compact('inventory'));
+        $quantityStocks = $inventory->inventoryStock;
+        //dd($quantityStocks);
+        return view('inventori.show', compact('inventory', 'quantityStocks'));
     }
 }
